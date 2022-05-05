@@ -17,7 +17,6 @@ var productExceptSelf = function(nums) {
 
     // Calculate the products right of each of the elements down to but not including i, multiply by the corresponding left value and update entry in output array 
     for(let z = nums.length - 1; z >= 0; z--){
-        console.log(`left at i=${z} is left=${toReturn[z]}  right=${right}`);
         toReturn[z] *= right;
         right = right * nums[z];
     }
