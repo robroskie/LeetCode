@@ -3,20 +3,17 @@
  * @param {number} target
  * @return {number[]}
  */
-var twoSum = function(nums, target) {
-    let hashmap = new Map();
+ var twoSum = function(nums, target) {
+    let map = {};
+
     for(let i = 0; i < nums.length; i++){
-        hashmap.set(nums[i], i)
+        map[nums[i]] = i;
     }
 
     for(let i = 0; i < nums.length; i++){
-        let search = target - nums[i];
-        if(hashmap.has(search)){
-            if(hashmap.get(search) > i){
-                return [i, hashmap.get(search)];
-            }
+        let val = target - nums[i];
+        if(map[val] != i && val in map){
+            return[i, map[val]];
         }
     }
-
-    return null;
 };
