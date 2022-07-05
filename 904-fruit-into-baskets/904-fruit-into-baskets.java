@@ -1,21 +1,25 @@
 class Solution {
-    public static int totalFruit(int[] fruits) {
-    	Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+    public int totalFruit(int[] fruits) {
     	int startWindow = 0;
-    	int max = 0;
+    	
+    	int maxFruit = 0;
+    	
+    	HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+    	
     	for(int endWindow = 0; endWindow < fruits.length; endWindow++) {
-    		int key = fruits[endWindow];
-    		map.merge(key, 1, Integer::sum);
+    		map.merge(fruits[endWindow], 1, Integer::sum);
+    		
     		while(map.size() > 2) {
-    			int keyToRemove = fruits[startWindow];
-    			map.put(keyToRemove, map.get(keyToRemove) - 1);
-    			if(map.get(keyToRemove) == 0) {
-    				map.remove(keyToRemove);
+    			map.put(fruits[startWindow], map.get(fruits[startWindow]) - 1);
+    		
+    			if(map.get(fruits[startWindow]) == 0) {
+    				map.remove(fruits[startWindow]);
     			}
     			startWindow++;
     		}
-    		max = Math.max(max, endWindow - startWindow + 1);
+ 
+    		maxFruit = Math.max(maxFruit, endWindow - startWindow + 1);
     	}
-    	return max;
+    	return maxFruit;
     }
 }
