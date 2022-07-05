@@ -39,18 +39,8 @@ class Solution {
 				if(currentNode.right != null)
 					q.add(currentNode.right);
 			}
-			
-			
-	
-			
-			
-			
-
-			
-			
 			return_list.add(temp_list);
 		}
-		
 		return return_list;
 	}
 }
