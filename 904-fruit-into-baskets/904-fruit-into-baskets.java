@@ -17,7 +17,6 @@ class Solution {
     			}
     			startWindow++;
     		}
- 
     		maxFruit = Math.max(maxFruit, endWindow - startWindow + 1);
     	}
     	return maxFruit;
