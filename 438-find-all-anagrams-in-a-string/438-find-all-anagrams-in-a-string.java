@@ -9,13 +9,10 @@ class Solution {
      		pMap.merge(p.charAt(i), 1, Integer::sum);
     	}
     	
-    	System.out.println(pMap + "\n");
-    	
     	int startWindow = 0;
     	
     	for(int endWindow = 0; endWindow < s.length(); endWindow++) {
     		char key = s.charAt(endWindow);
-    		
     		sMap.merge(key, 1, Integer::sum);
     		
     		if(endWindow - startWindow >= p.length()) {
