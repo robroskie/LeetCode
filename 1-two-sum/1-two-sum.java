@@ -1,5 +1,6 @@
 class Solution {
     public int[] twoSum(int[] nums, int target) {
+		int[] toReturn = new int[2];
 		
 		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
 
@@ -7,16 +8,11 @@ class Solution {
 			int searchVal = target - nums[i];
 			
 			if(map.containsKey(searchVal)) {
-				return new int[] {map.get(searchVal), i};
+				toReturn = new int[] {map.get(searchVal), i};
+				return toReturn;
 			}
-			
 			map.put(nums[i], i);
 		}
-		
-		System.out.println(map);
-
-		
-		return new int[] {69, 96};
+		return toReturn;
 	}
-
 }
