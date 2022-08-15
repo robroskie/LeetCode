@@ -16,9 +16,6 @@ class Solution {
         	mapT.merge(t.charAt(i), 1, Integer::sum);
         }
         
-        System.out.println(mapS);
-        System.out.println(mapT);
-        
 //      check if hashmaps match (if they don't for any value, return false
         return mapS.equals(mapT);
  
