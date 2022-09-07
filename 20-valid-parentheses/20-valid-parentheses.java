@@ -3,21 +3,20 @@ class Solution {
     	if(s.length() % 2 != 0)
     		return false;
     	
-    	Stack<Character> stack = new Stack<Character>();
+    	Stack<Character> st = new Stack<>();
     	
     	for(int i = 0; i < s.length(); i++) {
-    		char currentBracket = s.charAt(i);
-    	
-    		if(currentBracket == '{')
-    			stack.push('}');
-    		else if(currentBracket == '(')
-    			stack.push(')');
-    		else if(currentBracket == '[')
-    			stack.push(']');
-    		else if(stack.isEmpty() || stack.pop() != currentBracket) {
-    			return false;
-    		}
-    	}	
-    	return stack.isEmpty();
+    		char current_bracket = s.charAt(i);
+    		if(current_bracket == '{') 
+    			st.push('}');
+    		else if(current_bracket == '(')
+    			st.push(')');
+    		else if(current_bracket == '[')
+    			st.push(']');		
+    		else if(st.isEmpty() || st.pop() != current_bracket)
+				return false;
+
+    	}
+        return st.isEmpty();
     }
 }
